@@ -14,6 +14,7 @@ public class MinesweeperGame {
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
         System.out.println("지뢰찾기 게임 시작!");
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 10; j++) {
