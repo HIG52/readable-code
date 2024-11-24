@@ -3,6 +3,9 @@ package cleancode.minesweeper.tobe.io;
 import cleancode.minesweeper.tobe.GameBoard;
 import cleancode.minesweeper.tobe.GameException;
 
+import java.util.List;
+import java.util.stream.IntStream;
+
 public class ConsoleOutputHandler {
 
     public void showGameStartComment() {
@@ -12,10 +15,12 @@ public class ConsoleOutputHandler {
     }
 
     public void showBoard(GameBoard board) {
+        String alphabats = generateColAlphabats(board);
 
-        System.out.println("   a b c d e f g h i j");
+        System.out.println("   " + alphabats);
+
         for (int row = 0; row < board.getRowSize(); row++) {
-            System.out.printf("%d  ", row + 1);
+            System.out.printf("%2d  ", row + 1);
             for (int col = 0; col < board.getColSize(); col++) {
                 //getter를 사용해야하는 부분
                 //Cell 내부에서 그려달라고 하는게 더 이상한 부분
@@ -26,6 +31,14 @@ public class ConsoleOutputHandler {
 
         System.out.println();
 
+    }
+
+    private String generateColAlphabats(GameBoard board) {
+        List<String> alphabats = IntStream.range(0, board.getColSize())
+                        .mapToObj(index -> (char) ('a'+index))
+                                .map(Object::toString)
+                                        .toList();
+        return String.join(" ", alphabats);
     }
 
     public void printGameWinningComent() {

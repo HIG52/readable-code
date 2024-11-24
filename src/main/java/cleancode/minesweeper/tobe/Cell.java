@@ -6,9 +6,9 @@ public class Cell {
     private static final String FLAG_SIGN = "⚑";
     private static final String LAND_MINE_SIGN = "☼";
     //체크를 아직 하지 않은 sign
-    private static final String UNCHECKED_SIGN = "■";
+    private static final String UNCHECKED_SIGN = "□";
     //체크를 하였지만 비어있는 sign
-    private static final String EMPTY_SIGN = "□";
+    private static final String EMPTY_SIGN = "■";
 
     //Cell자체가 주변 Cell의 지뢰수와 지뢰여부를 가지고 있게 변경
     private int nearbyLandMineCount; //근처 지뢰 숫자

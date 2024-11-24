@@ -1,5 +1,7 @@
 package cleancode.minesweeper.tobe;
 
+import cleancode.minesweeper.tobe.gamelevel.GameLevel;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -7,11 +9,15 @@ public class GameBoard {
 
     //Cell 객체를 생성하여 리팩토링
     private final Cell[][] board;
+    private final int landMineCount;
 
-    private static final int LAND_MINE_COUNT = 10;
+    public GameBoard(GameLevel gameLevel){
+        int colSize = gameLevel.getColSize();
+        int rowSize = gameLevel.getRowSize();
 
-    public GameBoard(int rowSize, int colSize){
         board = new Cell[rowSize][colSize];
+
+        landMineCount = gameLevel.getLandMineCount();
     }
 
     public void flag(int selectedRowIndex, int selectedColIndex) {
@@ -91,7 +97,7 @@ public class GameBoard {
         }
         //의미를 갖지 않는 i값이기 때문에 그대로 냅둠
         //지뢰를 설치하는 과정
-        for (int i = 0; i < LAND_MINE_COUNT; i++) {
+        for (int i = 0; i < landMineCount; i++) {
             int landMineCol = new Random().nextInt(colSize);
             int landMineRow = new Random().nextInt(rowSize);
             Cell landMineCell = findCell(landMineRow, landMineCol);
