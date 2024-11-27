@@ -2,6 +2,8 @@ package cleancode.minesweeper.tobe.io;
 
 import cleancode.minesweeper.tobe.GameBoard;
 import cleancode.minesweeper.tobe.GameException;
+import cleancode.minesweeper.tobe.cell.Cell;
+import cleancode.minesweeper.tobe.position.CellPosition;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -26,7 +28,8 @@ public class ConsoleOutputHandler implements OutputHandler {
             for (int col = 0; col < board.getColSize(); col++) {
                 //getter를 사용해야하는 부분
                 //Cell 내부에서 그려달라고 하는게 더 이상한 부분
-                System.out.print(board.getSign(row, col) + " ");
+                CellPosition cellPosition = CellPosition.of(row, col);
+                System.out.print(board.getSign(cellPosition) + " ");
             }
             System.out.println();
         }
