@@ -18,7 +18,6 @@ public class GameApplication {
         Minesweeper minesweeper = new Minesweeper(gameLevel, inputHandler, outputHandler);
         minesweeper.initialize();
         minesweeper.run();
-
     }
 
     /*
