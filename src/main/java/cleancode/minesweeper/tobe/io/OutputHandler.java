@@ -5,13 +5,13 @@ import cleancode.minesweeper.tobe.GameException;
 
 public interface OutputHandler {
 
-    void showGameStartComment();
+    void showGameStartComments();
 
     void showBoard(GameBoard board);
 
-    void showGameWinningComent();
+    void showGameWinningComment();
 
-    void showGameLosingConment();
+    void showGameLosingComment();
 
     void showCommentForSelectingCell();
 
